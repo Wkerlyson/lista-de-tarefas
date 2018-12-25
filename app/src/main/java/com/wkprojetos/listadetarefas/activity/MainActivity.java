@@ -1,5 +1,6 @@
 package com.wkprojetos.listadetarefas.activity;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -17,7 +18,9 @@ import android.widget.LinearLayout;
 
 import com.wkprojetos.listadetarefas.R;
 import com.wkprojetos.listadetarefas.adapter.TarefaAdapter;
+import com.wkprojetos.listadetarefas.helper.DBHelper;
 import com.wkprojetos.listadetarefas.helper.RecyclerItemClickListener;
+import com.wkprojetos.listadetarefas.helper.TarefaDAO;
 import com.wkprojetos.listadetarefas.model.Tarefa;
 
 import java.util.ArrayList;
@@ -51,14 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void carregarListaDeTarefas(){
 
-        Tarefa tarefa = new Tarefa();
-        tarefa.setNomeTarefa("Ir ao mercado");
-        listaTarefa.add(tarefa);
-
-
-        Tarefa tarefa2 = new Tarefa();
-        tarefa2.setNomeTarefa("Ir ao cinema");
-        listaTarefa.add(tarefa2);
+        TarefaDAO dao = new TarefaDAO(getApplicationContext());
+        listaTarefa = dao.listar();
 
         tarefaAdapter = new TarefaAdapter(listaTarefa);
 

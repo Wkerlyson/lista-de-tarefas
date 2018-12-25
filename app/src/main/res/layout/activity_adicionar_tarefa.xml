@@ -7,7 +7,7 @@
     tools:context=".activity.AdicionarTarefaActivity">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/etTarefa"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -15,9 +15,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:autofillHints="@string/hint_digite_tarefa"
         android:ems="10"
         android:hint="@string/hint_digite_tarefa"
-        android:autofillHints="@string/hint_digite_tarefa"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
