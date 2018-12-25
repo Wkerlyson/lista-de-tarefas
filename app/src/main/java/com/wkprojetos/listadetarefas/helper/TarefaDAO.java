@@ -30,7 +30,7 @@ public class TarefaDAO implements  ITarefaDAO{
 
         try {
             escreve.insert(DBHelper.TABELA_TAREFAS, null, cv);
-            Log.i("SUCESSO", "SUCESSO AO SALVAR A TAREFE");
+            Log.i("SUCESSO", "SUCESSO AO SALVAR A TAREFA");
         }catch (Exception e){
             Log.e("ERRO", "Erro ao salvar a tarefa" + e.getMessage());
             return false;
@@ -41,7 +41,22 @@ public class TarefaDAO implements  ITarefaDAO{
 
     @Override
     public boolean atualizar(Tarefa tarefa) {
-        return false;
+
+        ContentValues cv = new ContentValues();
+        cv.put("nome", tarefa.getNomeTarefa());
+
+        try {
+
+            String[] args = {tarefa.getId().toString()};
+
+            escreve.update(DBHelper.TABELA_TAREFAS, cv, "id=?", args);
+            Log.i("SUCESSO", "SUCESSO AO EDITAR A TAREFA");
+        }catch (Exception e){
+            Log.e("ERRO", "Erro ao salvar a tarefa" + e.getMessage());
+            return false;
+        }
+
+        return true;
     }
 
     @Override
