@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Lista de Tarefas</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="hint_digite_tarefa">Digite uma terefa</string>
+    <string name="nome_tarefa">Tarefa</string>
+    <string name="menu_salvar">Salvar</string>
+</resources>
